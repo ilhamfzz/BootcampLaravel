@@ -1,0 +1,45 @@
+
+Table "users" {
+  "id" INT [pk]
+  "name" VARCHAR(255)
+  "email" VARCHAR(255)
+  "password" VARCHAR(255)
+}
+
+Table "profiles" {
+  "id" INT [pk]
+  "id_user" INT
+  "name" VARCHAR(255)
+  "address" VARCHAR(255)
+  "bio" TEXT
+}
+
+Table "categories" {
+  "id" INT [pk]
+  "name" VARCHAR(255)
+}
+
+Table "books" {
+  "id" INT [pk]
+  "id_category" INT
+  "title" VARCHAR(255)
+  "summary" TEXT
+  "release_year" INT
+  "stock" INT
+}
+
+Table "borrows" {
+  "id" INT [pk]
+  "id_user" INT
+  "id_book" INT
+  "tanggal_peminjaman" DATE
+  "tanggal_kembali" DATE
+}
+
+Ref:"users"."id" - "profiles"."id_user"
+
+Ref:"categories"."id" < "books"."id_category"
+
+Ref:"users"."id" < "borrows"."id_user"
+
+Ref:"books"."id" < "borrows"."id_book"
