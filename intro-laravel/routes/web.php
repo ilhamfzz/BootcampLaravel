@@ -20,3 +20,9 @@ Route::get('/', [DashboardController::class, 'home']);
 Route::get('/register', [AuthController::class, 'register']);
 
 Route::get('/welcome', [AuthController::class, 'welcome']);
+
+Route::post('/welcome', [AuthController::class, 'kirim']);
+
+Route::get('/table', [DashboardController::class, 'table']);
+
+Route::get('/data-table', [DashboardController::class, 'data_table']);

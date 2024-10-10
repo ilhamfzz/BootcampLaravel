@@ -8,11 +8,17 @@ class AuthController extends Controller
 {
     public function register()
     {
-        return view('register');
+        return view('pages.register');
     }
 
     public function welcome()
     {
-        return view('welcome');
+        return view('pages.welcome');
+    }
+    public function kirim(Request $request)
+    {
+        $first_name = $request->input('fname');
+        $last_name = $request->input('lname');
+        return view('pages.welcome', ['fname' => $first_name, 'lname' => $last_name]);
     }
 }
