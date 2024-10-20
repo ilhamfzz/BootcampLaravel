@@ -15,7 +15,7 @@ class AuthController extends Controller
     {
         return view('pages.welcome');
     }
-    public function kirim(Request $request)
+    public function post(Request $request)
     {
         $first_name = $request->input('fname');
         $last_name = $request->input('lname');
